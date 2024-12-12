@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import bgImg from "../assets/pic1.jpg"
 import logo from '../assets/logo.png';
 export default function SignUp() {
+  const [formData, setFormData] = useState({})
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value })
+  }
+  console.log(formData)
+
+  const handleSubmit = async () => {
+    
+  }
+
   return (
     <div className='flex justify-center items-center min-h-[calc(100vh-306px)] py-8'>
       <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
@@ -55,7 +65,10 @@ export default function SignUp() {
 
             <span className='w-1/5 border-b dark:border-gray-400 lg:w-1/4'></span>
           </div>
-          <form>
+
+          {/* Sign Up Form */}
+
+          <form onChange={handleSubmit}>
             <div className='mt-4'>
               <label
                 className='block mb-2 text-sm font-medium text-gray-600 '
@@ -67,6 +80,7 @@ export default function SignUp() {
                 id='name'
                 autoComplete='name'
                 name='name'
+                onChange={handleChange}
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='text'
               />
@@ -82,6 +96,7 @@ export default function SignUp() {
                 id='photo'
                 autoComplete='photo'
                 name='photo'
+                onChange={handleChange}
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='text'
               />
@@ -94,9 +109,11 @@ export default function SignUp() {
                 Email Address
               </label>
               <input
-                id='LoggingEmailAddress'
+                id='Email'
                 autoComplete='email'
                 name='email'
+                placeholder='name@company.com'
+                onChange={handleChange}
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='email'
               />
@@ -105,6 +122,7 @@ export default function SignUp() {
             <div className='mt-4'>
               <div className='flex justify-between'>
                 <label
+                  id='password'
                   className='block mb-2 text-sm font-medium text-gray-600 '
                   htmlFor='loggingPassword'
                 >
@@ -116,6 +134,7 @@ export default function SignUp() {
                 id='loggingPassword'
                 autoComplete='current-password'
                 name='password'
+                onChange={handleChange}
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='password'
               />
@@ -134,7 +153,7 @@ export default function SignUp() {
             <span className='w-1/5 border-b  md:w-1/4'></span>
 
             <Link
-              to='/login'
+              to='/signin'
               className='text-xs text-gray-500 uppercase  hover:underline'
             >
               or sign in
@@ -146,7 +165,7 @@ export default function SignUp() {
         <div
           className='hidden bg-cover bg-center lg:block lg:w-1/2'
           style={{
-            backgroundImage:`url(${bgImg})`,
+            backgroundImage: `url(${bgImg})`,
           }}
         ></div>
       </div>

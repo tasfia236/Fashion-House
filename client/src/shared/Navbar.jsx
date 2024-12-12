@@ -6,13 +6,13 @@ import { Link, Links } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div className="bg-gradient-to-r from-sky300 to-pink300 shadow dark:bg-gray-800">
+    <div className="bg-gradient-to-r from-sky300 via-white to-pink300 shadow dark:bg-gray-300">
       <nav className="container mx-auto flex items-center justify-between py-3 px-6">
         {/* Left: Logo and Brand */}
         <div className="flex items-center gap-3">
-          <img src={logo} alt="Logo" className="h-10 w-auto" />
-          <a href="#" className="text-xl font-bold text-gray-800 dark:text-white">
-            Laila's <span className="text-pink700">Fashion</span>
+          <img src={logo} alt="Logo" className="h-[100px] w-auto" />
+          <a href="/" className="text-xl font-bold text-gray-800 dark:text-white absolute -mb-14 -ml-5">
+            <span className="text-pink700">Fashion</span> House
           </a>
         </div>
 

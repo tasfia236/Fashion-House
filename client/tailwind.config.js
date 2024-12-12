@@ -7,13 +7,15 @@ export default {
   theme: {
     extend: {},
     colors: {
-      'pink700': '#ffafca',
+      'white': 'ffffff',
+      'pink700': '#ff89b0',
+      'pink500': '#ffafca',
       'pink300': '#ffc8dc',
-      'purple300': '#dee3ff',
-      'purple700': '#9c89b8',
       'sky300': '#bde0fe',
       'sky500': '#a2d2ff',
       'sky700': '#90c9ff',
+      'purple300': '#dee3ff',
+      'purple700': '#9c89b8',
     },
   },
   plugins: [
