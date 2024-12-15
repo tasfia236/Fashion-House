@@ -1,14 +1,15 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    username: {
-        type: 'string',
-        required: true,
-    },
     email: {
         type: 'string',
         required: true,
         unique: true,
+        lowercase: true,
+    },
+    username: {
+        type: 'string',
+        required: true,
     },
     photo: {
         type: 'string',
@@ -17,10 +18,11 @@ const userSchema = new mongoose.Schema({
     password: {
         type: 'string',
         required: true,
+        minLength: 6,
     },
-}, { timeseries: true }
+}, { timestamps: true }
 );
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('users', userSchema);
 
 export default User;

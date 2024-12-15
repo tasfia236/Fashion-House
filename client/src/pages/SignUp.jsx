@@ -3,14 +3,35 @@ import { Link } from 'react-router-dom'
 import bgImg from "../assets/pic1.jpg"
 import logo from '../assets/logo.png';
 export default function SignUp() {
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value })
-  }
-  console.log(formData)
-
-  const handleSubmit = async () => {
-    
+    setFormData({ ...formData, [e.target.id]: e.target.value.trim() })
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.username || !formData.email || !formData.photo || !formData.password) {
+      return setErrorMessage('Please Fill up all fields.')
+    }
+    try {
+      setLoading(true);
+      setErrorMessage(null);
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': "application/json" },
+        body: JSON.stringify(formData),
+      });
+      setErrorMessage('Registration successful.');
+      const data = await res.json();
+      if (data.success === false) {
+        setErrorMessage(`E11000 duplicate key error collection: { username: "${formData.username}" or email: "${formData.email}" }`)
+      }
+      setLoading(false);
+    } catch (err) {
+      setErrorMessage(`E11000 duplicate key error collection: { username: "${formData.username}" or email: "${formData.email}" }`);
+      setLoading(false);
+    }
   }
 
   return (
@@ -68,7 +89,7 @@ export default function SignUp() {
 
           {/* Sign Up Form */}
 
-          <form onChange={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className='mt-4'>
               <label
                 className='block mb-2 text-sm font-medium text-gray-600 '
@@ -77,14 +98,33 @@ export default function SignUp() {
                 Username
               </label>
               <input
-                id='name'
-                autoComplete='name'
-                name='name'
+                id='username'
+                autoComplete='username'
+                name='username'
                 onChange={handleChange}
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='text'
               />
             </div>
+            {/* Email */}
+            <div className='mt-4'>
+              <label
+                className='block mb-2 text-sm font-medium text-gray-600 '
+                htmlFor='LoggingEmailAddress'
+              >
+                Email Address
+              </label>
+              <input
+                id='email'
+                autoComplete='email'
+                name='email'
+                placeholder='name@company.com'
+                onChange={handleChange}
+                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                type='email'
+              />
+            </div>
+            {/* Photo */}
             <div className='mt-4'>
               <label
                 className='block mb-2 text-sm font-medium text-gray-600 '
@@ -97,28 +137,11 @@ export default function SignUp() {
                 autoComplete='photo'
                 name='photo'
                 onChange={handleChange}
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='text'
               />
             </div>
-            <div className='mt-4'>
-              <label
-                className='block mb-2 text-sm font-medium text-gray-600 '
-                htmlFor='LoggingEmailAddress'
-              >
-                Email Address
-              </label>
-              <input
-                id='Email'
-                autoComplete='email'
-                name='email'
-                placeholder='name@company.com'
-                onChange={handleChange}
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
-                type='email'
-              />
-            </div>
-
+            {/* Password */}
             <div className='mt-4'>
               <div className='flex justify-between'>
                 <label
@@ -129,22 +152,29 @@ export default function SignUp() {
                   Password
                 </label>
               </div>
-
               <input
-                id='loggingPassword'
+                id='password'
                 autoComplete='current-password'
                 name='password'
                 onChange={handleChange}
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='password'
               />
             </div>
+
+            {/* SignUp Button */}
             <div className='mt-6'>
               <button
                 type='submit'
+                disabled={loading}
                 className='w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
               >
-                Sign Up
+                {loading ? (
+                  <>
+                    <span className='loading loading-spinner loading-sm'></span>
+                    <span className='pl-3'>Loading...</span>
+                  </>
+                ) : ('Sign Up')}
               </button>
             </div>
           </form>
@@ -161,6 +191,12 @@ export default function SignUp() {
 
             <span className='w-1/5 border-b  md:w-1/4'></span>
           </div>
+          {errorMessage && (
+            <span className='mt-5 alert'>
+              {errorMessage}
+            </span>
+          )}
+
         </div>
         <div
           className='hidden bg-cover bg-center lg:block lg:w-1/2'

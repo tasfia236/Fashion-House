@@ -1,14 +1,15 @@
 import express from "express";
 import bcryptjs from "bcryptjs";
-import User from "../models/user.model.js";
+import User from "../models/User.js";
+import { errorHandle } from "../utils/error.js";
 
 const router = express.Router();
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', async (req, res, next) => {
     const { username, email, photo, password } = req.body;
 
     if (!username || !email || !photo || !password || username === '' || email === '' || photo === '' || password === '') {
-        return res.status(400).json({ message: 'All fields are required' });
+        next(errorHandle(400, 'All fields are required.')); // middleware error handle
     }
 
     const hashedPassword = bcryptjs.hashSync(password, 10);
@@ -23,8 +24,14 @@ router.post('/signup', async (req, res) => {
         await newUser.save();
         res.json('SignUp Seccessfully.')
     } catch (err) {
-        res.status(500).json({ message: err.message })
+        next(err.message); // middleware error handle
     }
+})
+
+//All User
+router.get('/user', async (req, res) => {
+    const result = await User.find({})
+    res.send(result)
 })
 
 export default router;
