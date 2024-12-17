@@ -1,100 +1,132 @@
-import React from 'react';
-import logo from '../assets/logo.png';
-import { CiSearch } from "react-icons/ci";
-import { FaShoppingCart } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.jpg';
+import { AuthContext } from '../Providers/AuthProviders';
 
-const Navbar = () => {
+export default function Navbar() {
+  const { user, logout } = useContext(AuthContext);
+ // console.log(user);
+  const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem('token') !== null;
+  const role = localStorage.getItem('role');
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
+  const NavList = <>
+    <li><Link to="/">Home</Link> </li>
+    <li> <Link to="/all-product">Product</Link> </li>
+    <li> <Link to="/contact Us">Contact Us</Link> </li>
+  </>
+
+  const NavList2 = <>
+    <li>
+      <Link to={`/${role}-dashboard`}>
+        Dashboard
+      </Link>
+    </li>
+    <li><button onClick={handleLogout}>Logout</button></li>
+  </>
+
   return (
-    <div className="bg-gradient-to-r from-sky300 via-white to-pink300 shadow-lg dark:bg-gray-600">
-      <nav className="container mx-auto flex items-center justify-between py-3">
-        {/* Left: Logo and Brand */}
-        <div className="flex items-center gap-3">
-          <img src={logo} alt="Logo" className="h-[58px]" />
-          <a href="/" className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-9 -ml-16">
+    <div className="navbar bg-gradient-to-r from-sky300 via-white to-pink300 shadow-lg dark:bg-gray-600">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            {NavList}
+          </ul>
+        </div>
+        <ul className="menu menu-horizontal px-1 hidden lg:flex">
+          {NavList}
+        </ul>
+      </div>
+
+      {/* Center: LOGO */}
+      <div className="navbar-center">
+        <a href='/' className="btn btn-ghost text-xl">
+          <img src={logo} className='h-[45px] lg:h-[55px]' />
+          <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-12 -ml-28">
             <span className="text-pink700">Fashion</span> House
-          </a>
-        </div>
+          </p>
+        </a>
+      </div>
 
-        <div className='flex items-center justify-center'>
-          {/* Search Bar */}
-          <div className="relative">
-            <CiSearch className="absolute top-2.5 left-3 text-gray-400" />
-            <input
-              type="text"
-              className="pl-10 pr-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-sky-400 focus:ring focus:ring-opacity-40 focus:ring-sky-300"
-              placeholder="Search"
-            />
+      {/* End: Search, Icon, Auth */}
+      <div className="flex-none gap-2 navbar-end">
+        <div className="navbar-center flex items-center">
+          <div className="form-control">
+            <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
           </div>
-        </div>
-
-        {/* Center: Nav Links */}
-        <div className="flex space-x-6">
-          <a
-            href="#"
-            className="text-gray-700 dark:text-gray-200 hover:text-pink700 font-medium transition"
-          >
-            Product
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 dark:text-gray-200 hover:text-pink700 font-medium transition"
-          >
-            About
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 dark:text-gray-200 hover:text-pink700 font-medium transition"
-          >
-            Contact
-          </a>
-        </div>
-
-        {/* Right: Buttons, and Avatar */}
-        <div className="flex items-center gap-4">
-
-
-          {/* Cart Button */}
-          <button className="flex items-center px-3 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600">
-            <FaShoppingCart className="text-gray-600 dark:text-gray-200" />
-          </button>
-
-          {/* Sign Up Button */}
-
-          <Link to='/signup'
-            className="px-4 py-2 text-sm font-semibold text-white bg-sky500 rounded-lg hover:bg-sky700"
-          >
-            Sign Up
-
-          </Link>
-
-
-          {/* Login Button */}
-          <Link to='/signin'
-            className="px-4 py-2 text-sm font-semibold text-white bg-sky500 rounded-lg hover:bg-sky700"
-          >
-            Login In
-
-          </Link>
-
-
-          {/* User Avatar */}
-          <div className="relative">
-            <div
-              className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 overflow-hidden cursor-pointer"
-              title="User Profile"
-            >
-              <img
-                src="https://via.placeholder.com/40"
-                alt="User Avatar"
-                className="w-full h-full object-cover"
-              />
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar lg:hidden">
+              <div
+                className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 overflow-hidden cursor-pointer"
+                title="User Profile"
+              >
+                <img
+                  src="https://via.placeholder.com/40"
+                  alt="User Avatar"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              {isLoggedIn && (
+                <>
+                  {NavList2}
+                </>
+              )}
+              {!user && <>
+                <div className="gap-2 flex justify-around">
+                  <Link to='/signin'>
+                    <button className="btn btn-sm">Sign In</button>
+                  </Link>
+                  <Link to='/signup'>
+                    <button className="btn btn-sm bg-red-600 text-white">Sign Up</button>
+                  </Link>
+                </div>
+              </>}
+            </ul>
           </div>
+          <ul className="menu menu-horizontal px-1 hidden lg:flex">
+            {isLoggedIn && (
+              <>
+                {NavList2}
+              </>
+            )}
+          </ul>
+          {!user && <>
+            <div className="gap-3 hidden lg:flex">
+              <Link to='/signin'>
+                <button className="btn btn-sm">Sign In</button>
+              </Link>
+              <Link to='/signup'>
+                <button className="btn btn-sm bg-red-600 text-white">Sign Up</button>
+              </Link>
+            </div>
+          </>}
         </div>
-      </nav>
-    </div>
-  );
-};
-
-export default Navbar;
+      </div>
+    </div >
+  )
+}

@@ -1,14 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
-import { MainLayouts } from "../layouts/MainLayouts";
-import Home from "../pages/Home";
-import { Product } from "../pages/Product";
-import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
+import { MainLayout } from "../Layouts/MainLayout";
+import Home from "../Pages/Home/Home";
+import Product from "../Pages/AllProducts/Product";
+import SignUp from "../Pages/Auth/SignUp";
+import SignIn from "../Pages/Auth/SignIn";
+import UserDashboard from "../Pages/Dashboard/UserDashboard";
+import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 
 const routes = createBrowserRouter([
     {
         path :'/',
-        element : <MainLayouts></MainLayouts>,
+        element : <MainLayout></MainLayout>,
         children : [
             {
                 path : '/',
@@ -25,7 +27,15 @@ const routes = createBrowserRouter([
             {
                 path : '/signup',
                 element: <SignUp></SignUp>
-            }
+            },
+            {
+                path : '/user-dashboard',
+                element: <UserDashboard></UserDashboard>
+            },
+            {
+                path : '/admin-dashboard',
+                element: <AdminDashboard></AdminDashboard>
+            },
         ]
     }
 ])
