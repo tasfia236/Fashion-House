@@ -26,9 +26,9 @@ const AuthProviders = ({ children }) => {
         const token = localStorage.getItem('token');
         if (token) {
             const decoded = parseJwt(token);
-        //    console.log(decoded);
+            console.log(decoded);
             if (decoded && decoded.email && decoded.role) {
-                setUser({ email: decoded.email, role: decoded.role });
+                setUser({ email: decoded.email, role: decoded.role, user: decoded.user });
             } else {
             //    console.error('Invalid token payload:', decoded);
                 setUser(null); // Clear user if the token is invalid
@@ -42,7 +42,7 @@ const AuthProviders = ({ children }) => {
             localStorage.setItem('token', token);
             localStorage.setItem('role', decoded.role);
    //         console.log(decoded);
-            setUser({ email: decoded.email, role: decoded.role });
+            setUser({ email: decoded.email, role: decoded.role, user: decoded.user });
         } else {
             console.error('Invalid token during login:', decoded);
         }

@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo2.png';
 import { AuthContext } from '../Providers/AuthProviders';
 
 export default function Navbar() {
-  const { user, logout } = useContext(AuthContext);
- // console.log(user);
+  const { user, logout } = useContext(AuthContext) ;
+  console.log(user);
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem('token') !== null;
   const role = localStorage.getItem('role');
@@ -31,7 +31,7 @@ export default function Navbar() {
   </>
 
   return (
-    <div className="navbar bg-gradient-to-r from-sky300 via-white to-pink300 shadow-lg dark:bg-gray-600">
+    <div className="navbar fixed z-10 bg-base-100 bg-opacity-15 text-black">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -62,7 +62,7 @@ export default function Navbar() {
       {/* Center: LOGO */}
       <div className="navbar-center">
         <a href='/' className="btn btn-ghost text-xl">
-          <img src={logo} className='h-[45px] lg:h-[55px]' />
+          <img src={logo} className='h-[100px] lg:h-[55px]' />
           <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-12 -ml-28">
             <span className="text-pink700">Fashion</span> House
           </p>
@@ -82,7 +82,7 @@ export default function Navbar() {
                 title="User Profile"
               >
                 <img
-                  src="https://via.placeholder.com/40"
+                  src={user?.user.photo}
                   alt="User Avatar"
                   className="w-full h-full object-cover"
                 />
@@ -93,6 +93,10 @@ export default function Navbar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
               {isLoggedIn && (
                 <>
+                <div  className='pb-3'>
+                  <p className='font-bold text-lg'>{user?.user.username}</p>
+                  <p>{user?.email}</p>
+                </div>
                   {NavList2}
                 </>
               )}
