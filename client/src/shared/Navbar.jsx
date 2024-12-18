@@ -5,7 +5,7 @@ import { AuthContext } from '../Providers/AuthProviders';
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
- // console.log(user);
+  console.log(user);
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem('token') !== null;
   const role = localStorage.getItem('role');
@@ -31,7 +31,7 @@ export default function Navbar() {
   </>
 
   return (
-    <div className="navbar bg-gradient-to-r from-sky300 via-white to-pink300 shadow-lg dark:bg-gray-600">
+    <div className="navbar fixed z-10 bg-base-100 bg-opacity-15 text-black">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

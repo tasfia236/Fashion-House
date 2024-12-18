@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from "cors";
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
+import productRoutes from './routes/product.route.js';	
 const port = process.env.PORT || 4000;
 
 const app = express();
@@ -35,6 +36,7 @@ app.use((err, req, res, next) => {
 
 app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
+app.use('/products', productRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running port ${port}`);
