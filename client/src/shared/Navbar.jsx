@@ -4,11 +4,9 @@ import logo from '../assets/logo2.png';
 import { AuthContext } from '../Providers/AuthProviders';
 
 export default function Navbar() {
-<<<<<<< HEAD
-  const { user, logout } = useContext(AuthContext);
-=======
+
+
   const { user, logout } = useContext(AuthContext) ;
->>>>>>> d0f337f655361f8d738b5348e4177d93348503c3
   console.log(user);
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem('token') !== null;
