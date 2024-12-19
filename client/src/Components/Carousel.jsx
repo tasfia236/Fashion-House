@@ -9,8 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import Slides from './Slides';
-import Navbar from '../shared/Navbar';
+
 export const Carousel = () => {
   return (
     <>
@@ -31,7 +30,7 @@ export const Carousel = () => {
     >
       <SwiperSlide>
       <div
-        className="w-full bg-center bg-cover h-[750px] "
+        className="w-full bg-center bg-cover h-[700px] md:h-[950px] "
         style={{
           backgroundImage:
            `url(${pic3})`,
@@ -54,7 +53,7 @@ export const Carousel = () => {
       </SwiperSlide>
       <SwiperSlide>
       <div
-        className="w-full bg-center bg-cover h-[750px]"
+        className="w-full bg-center bg-cover h-[700px] md:h-[950px]"
         style={{
           backgroundImage:
             `url(${pic2})`,
