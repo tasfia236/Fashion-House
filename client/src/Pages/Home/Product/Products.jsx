@@ -19,10 +19,10 @@ export default function Products() {
         })
 
     return (
-        <div>
-            <h1 className="text-2xl text-center font-bold mt-12 pb-5">Product</h1>
-            <div>
-                {Array.from(product)?.slice(0,4).map(product => <ProductCard key={product._id} product={product} ></ProductCard>)}
+        <div className='pt-28 pb-12 mx-auto'>
+            <h1 className="text-2xl text-center font-bold pb-5">Product</h1>
+            <div className='grid grid-cols-4 gap-5 mx-auto'>
+                {Array.from(product)?.map(product => <ProductCard key={product._id} product={product} ></ProductCard>)}
             </div>
         </div>
     )

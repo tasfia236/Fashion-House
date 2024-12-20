@@ -1,13 +1,16 @@
-import React from 'react'
+
 import { Carousel } from '../../Components/Carousel'
-import Products from './Product/Products'
+// import Products from './Product/Products'
+import Categories from '../../Components/Categories'
 
 export default function Home() {
   return (
     <div className=''>
 
       <Carousel />
-      <Products />
+      <Categories />
+      {/* <Products /> */}
+
     </div>
   )
 }

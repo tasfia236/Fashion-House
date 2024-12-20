@@ -6,6 +6,7 @@ import SignUp from "../Pages/Auth/SignUp";
 import SignIn from "../Pages/Auth/SignIn";
 import UserDashboard from "../Pages/Dashboard/UserDashboard";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
+import Products from "../Pages/Home/Product/Products";
 
 const routes = createBrowserRouter([
     {
@@ -17,8 +18,8 @@ const routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path : '/product',
-                element: <Product></Product>
+                path : '/all-product',
+                element: <Products></Products>
             },
             {
                 path : '/signin',

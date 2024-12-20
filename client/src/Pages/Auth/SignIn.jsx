@@ -5,7 +5,8 @@ import bgImg from "../../assets/pic1.jpg"
 import logo from '../../assets/logo.jpg';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import { AuthContext } from '../../Providers/AuthProviders';
-
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { app } from '../../firebase/firebase';
 
 export default function SignIn() {
   const { login } = useContext(AuthContext);
@@ -14,6 +15,8 @@ export default function SignIn() {
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
   const location = useLocation();
+  const googleProvider = new GoogleAuthProvider();
+  const auth = getAuth(app);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -49,6 +52,49 @@ export default function SignIn() {
         setLoading(false);
       });
 
+  }
+
+  const handleGoogleClick = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(result => {
+        console.log(result);
+        const userInfo = {
+          email: result.user?.email,
+          username: result.user?.displayName,
+          photo: result.user?.photoURL,
+          password: '123456',
+          role: 'user'
+        }
+        axiosPublic.post('/auth/signin', userInfo)
+          .then(res => {
+            console.log(res.data);
+            login(res.data.token);
+            if (res.data.token.success) {
+              Swal.fire({
+                title: "User Logged In Successfully",
+                icon: "success",
+                showClass: {
+                  popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `
+                },
+                hideClass: {
+                  popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `
+                }
+              });
+              navigate(location?.state ? location.state : '/')
+            }
+          })
+      })
+      .catch(error => {
+        console.error(error);
+      })
   }
 
   return (
@@ -98,7 +144,7 @@ export default function SignIn() {
               </div>
 
               <span className='w-5/6 px-4 py-3 font-bold text-center'>
-                Sign in with Google
+                <button type="button" onClick={handleGoogleClick}>Sign in with Google</button>
               </span>
             </div>
 

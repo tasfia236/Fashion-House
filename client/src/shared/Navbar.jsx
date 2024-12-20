@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo2.png';
 import { AuthContext } from '../Providers/AuthProviders';
 
 export default function Navbar() {
@@ -62,9 +62,9 @@ export default function Navbar() {
       {/* Center: LOGO */}
       <div className="navbar-center">
         <a href='/' className="btn btn-ghost text-xl">
-          <img src={logo} className='h-[45px] lg:h-[55px]' />
-          <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-12 -ml-28">
-            <span className="text-pink700">Fashion</span> House
+          <img src={logo} className='h-[60px] lg:h-[70px]' />
+          <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-14 -mr-28">
+            <span className="text-pink700 absolute -ml-28">Fashion</span> House
           </p>
         </a>
       </div>
