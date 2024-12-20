@@ -30,7 +30,7 @@ const Categories = () => {
  useEffect(()=>{
     const getData = async () =>{
         const {data} =await axiosPublic.get('/products/data')  
-        console.log(data)
+   //     console.log(data)
         setProducts(data); 
        
     }

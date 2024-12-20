@@ -234,7 +234,7 @@ export default function SignUp() {
               <button
                 type='submit'
                 disabled={loading}
-                className='w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
+                className='w-full px-6 py-3 text-sm font-medium tracking-wide capitalize transition-colors duration-300 text-white hover:text-neutral-950 transform bg-pink700 hover:bg-pink300 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
               >
                 {loading ? (
                   <>
@@ -247,7 +247,7 @@ export default function SignUp() {
           </form>
 
           <div className='flex items-center justify-between mt-4'>
-            <span className='w-1/5 border-b  md:w-1/4'></span>
+            <span className='w-1/5 border-b md:w-1/4'></span>
 
             <Link
               to='/signin'

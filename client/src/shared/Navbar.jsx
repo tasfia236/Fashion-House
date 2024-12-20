@@ -23,7 +23,7 @@ export default function Navbar() {
 
   const NavList2 = <>
     <li>
-      <Link to={`/${role}-dashboard`}>
+      <Link to={`/dashboard/profile`}>
         Dashboard
       </Link>
     </li>
@@ -99,10 +99,10 @@ export default function Navbar() {
               {!user && <>
                 <div className="gap-2 flex justify-around">
                   <Link to='/signin'>
-                    <button className="btn btn-sm">Sign In</button>
+                    <button className="btn btn-sm bg-sky300">Sign In</button>
                   </Link>
                   <Link to='/signup'>
-                    <button className="btn btn-sm bg-red-600 text-white">Sign Up</button>
+                    <button className="btn btn-sm bg-pink300">Sign Up</button>
                   </Link>
                 </div>
               </>}
