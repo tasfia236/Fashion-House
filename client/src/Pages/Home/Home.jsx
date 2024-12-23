@@ -1,7 +1,10 @@
-import React from 'react'
+
 import { Carousel } from '../../Components/Carousel'
+
 import Categories from '../../Components/Categories'
 
+// import Products from './Product/Products'
+import Categories from '../../Components/Categories'
 
 export default function Home() {
   return (
@@ -11,6 +14,11 @@ export default function Home() {
 <div className='container mx-auto text-center font-bold text-3xl mt-20 h-full rounded-2xl bg-pink100'>
 <Categories></Categories>
 </div>
-    </div>
+
+      <Carousel />
+      <Categories />
+      {/* <Products /> */}
+
+  </div>
   )
 }

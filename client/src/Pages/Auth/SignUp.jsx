@@ -1,8 +1,12 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import bgImg from "../../assets/pic1.jpg"
 import logo from '../../assets/logo.jpg';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { app } from '../../firebase/firebase';
+import Swal from 'sweetalert2';
+
 export default function SignUp() {
   const axiosPublic = useAxiosPublic();
   const [username, setUsername] = useState('');
@@ -12,13 +16,16 @@ export default function SignUp() {
   const role = 'user';
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = { email, username, photo, password, role }
     console.log(data);
     setLoading(true);
-    
+
     axiosPublic.post('/auth/signup', data)
       .then(res => {
         setMessage('Registration successful.');
@@ -46,6 +53,48 @@ export default function SignUp() {
         }
       });
 
+  }
+
+  const handleGoogleClick = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(result => {
+        console.log(result);
+        const userInfo = {
+          username: result.user?.displayName,
+          email: result.user?.email,
+          photo: result.user?.photoURL,
+          password: '123456',
+          role: 'user'
+        }
+        axiosPublic.post('/auth/signup', userInfo)
+          .then(res => {
+            console.log(res.data);
+            if (res.data.success) {
+              Swal.fire({
+                title: "User Logged In Successfully",
+                icon: "success",
+                showClass: {
+                  popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `
+                },
+                hideClass: {
+                  popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `
+                }
+              });
+              navigate(location?.state ? location.state : '/')
+            }
+          })
+      })
+      .catch(error => {
+        console.error(error);
+      })
   }
 
   return (
@@ -87,7 +136,7 @@ export default function SignUp() {
             </div>
 
             <span className='w-5/6 px-4 py-3 font-bold text-center'>
-              Sign in with Google
+              <button type="button" onClick={handleGoogleClick}>Sign in with Google</button>
             </span>
           </div>
 
@@ -185,7 +234,7 @@ export default function SignUp() {
               <button
                 type='submit'
                 disabled={loading}
-                className='w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
+                className='w-full px-6 py-3 text-sm font-medium tracking-wide capitalize transition-colors duration-300 text-white hover:text-neutral-950 transform bg-pink700 hover:bg-pink300 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
               >
                 {loading ? (
                   <>
@@ -198,7 +247,7 @@ export default function SignUp() {
           </form>
 
           <div className='flex items-center justify-between mt-4'>
-            <span className='w-1/5 border-b  md:w-1/4'></span>
+            <span className='w-1/5 border-b md:w-1/4'></span>
 
             <Link
               to='/signin'

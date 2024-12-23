@@ -5,9 +5,12 @@ import { AuthContext } from '../Providers/AuthProviders';
 
 export default function Navbar() {
 
-
   const { user, logout } = useContext(AuthContext) ;
   console.log(user);
+
+  const { user, logout } = useContext(AuthContext);
+  //console.log(user);
+
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem('token') !== null;
   const role = localStorage.getItem('role');
@@ -18,14 +21,14 @@ export default function Navbar() {
   };
 
   const NavList = <>
-    <li><Link to="/">Home</Link> </li>
-    <li> <Link to="/all-product">Product</Link> </li>
-    <li> <Link to="/contact Us">Contact Us</Link> </li>
+    <li><Link to="/" className='font-bold text-base hover:bg-pink300'>Home</Link> </li>
+    <li> <Link to="/all-product" className='font-bold text-base hover:bg-pink300'>Product</Link> </li>
+    <li> <Link to="/contact Us" className='font-bold text-base hover:bg-pink300'>Contact Us</Link> </li>
   </>
 
   const NavList2 = <>
     <li>
-      <Link to={`/${role}-dashboard`}>
+      <Link to={`/dashboard/profile`}>
         Dashboard
       </Link>
     </li>
@@ -64,9 +67,9 @@ export default function Navbar() {
       {/* Center: LOGO */}
       <div className="navbar-center">
         <a href='/' className="btn btn-ghost text-xl">
-          <img src={logo} className='h-[100px] lg:h-[55px]' />
-          <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-12 -ml-28">
-            <span className="text-pink700">Fashion</span> House
+          <img src={logo} className='h-[60px] lg:h-[70px]' />
+          <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-14 -mr-28">
+            <span className="text-pink700 absolute -ml-28">Fashion</span> House
           </p>
         </a>
       </div>
@@ -84,7 +87,7 @@ export default function Navbar() {
                 title="User Profile"
               >
                 <img
-                  src={user?.user.photo}
+                  src="https://via.placeholder.com/40"
                   alt="User Avatar"
                   className="w-full h-full object-cover"
                 />
@@ -95,20 +98,16 @@ export default function Navbar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
               {isLoggedIn && (
                 <>
-                <div  className='pb-3'>
-                  <p className='font-bold text-lg'>{user?.user.username}</p>
-                  <p>{user?.email}</p>
-                </div>
                   {NavList2}
                 </>
               )}
               {!user && <>
                 <div className="gap-2 flex justify-around">
                   <Link to='/signin'>
-                    <button className="btn btn-sm">Sign In</button>
+                    <button className="btn btn-sm bg-sky300">Sign In</button>
                   </Link>
                   <Link to='/signup'>
-                    <button className="btn btn-sm bg-red-600 text-white">Sign Up</button>
+                    <button className="btn btn-sm bg-pink300">Sign Up</button>
                   </Link>
                 </div>
               </>}
@@ -124,10 +123,10 @@ export default function Navbar() {
           {!user && <>
             <div className="gap-3 hidden lg:flex">
               <Link to='/signin'>
-                <button className="btn btn-sm">Sign In</button>
+                <button className="btn btn-sm bg-sky300">Sign In</button>
               </Link>
               <Link to='/signup'>
-                <button className="btn btn-sm bg-red-600 text-white">Sign Up</button>
+                <button className="btn btn-sm bg-pink300">Sign Up</button>
               </Link>
             </div>
           </>}
