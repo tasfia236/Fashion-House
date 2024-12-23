@@ -1,11 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import { MainLayout } from "../Layouts/MainLayout";
 import Home from "../Pages/Home/Home";
-import Product from "../Pages/AllProducts/Product";
+
 import SignUp from "../Pages/Auth/SignUp";
 import SignIn from "../Pages/Auth/SignIn";
 import UserDashboard from "../Pages/Dashboard/UserDashboard";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
+import { SingleProductDetails } from "../Pages/SingleProductDetails/SingleProductDetails";
+import { AllProducts } from "../Components/AllProducts";
+
+
 
 const routes = createBrowserRouter([
     {
@@ -18,7 +22,11 @@ const routes = createBrowserRouter([
             },
             {
                 path : '/product',
-                element: <Product></Product>
+                element: <AllProducts></AllProducts>
+            },
+            {
+                path : '/product/:id',
+                element: <SingleProductDetails/>
             },
             {
                 path : '/signin',
@@ -36,6 +44,7 @@ const routes = createBrowserRouter([
                 path : '/admin-dashboard',
                 element: <AdminDashboard></AdminDashboard>
             },
+           
         ]
     }
 ])

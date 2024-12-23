@@ -37,6 +37,7 @@ app.use((err, req, res, next) => {
 app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
+app.use('/product', productRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running port ${port}`);

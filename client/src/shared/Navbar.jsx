@@ -19,7 +19,7 @@ export default function Navbar() {
 
   const NavList = <>
     <li><Link to="/">Home</Link> </li>
-    <li> <Link to="/all-product">Product</Link> </li>
+    <li> <Link to="/product">Product</Link> </li>
     <li> <Link to="/contact Us">Contact Us</Link> </li>
   </>
 

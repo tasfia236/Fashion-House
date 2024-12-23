@@ -82,7 +82,7 @@ export const SingleProductDetails = () => {
           <div className="mt-4 text-xl font-bold text-blue-600">
             Price: ${product.price?.toFixed(2) || '0.00'}
           </div>
-          <div className="mt-2 flex items-center text-yellow-500">
+          <div className="mt-2 flex items-center text-yellow500">
             {Array.from({ length: 5 }, (_, i) => (
               <svg
                 key={i}
