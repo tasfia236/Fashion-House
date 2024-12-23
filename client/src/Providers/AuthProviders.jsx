@@ -42,9 +42,6 @@ const AuthProviders = ({ children }) => {
             localStorage.setItem('token', token);
             localStorage.setItem('role', decoded.role);
 
-            //         console.log(decoded);
-
-            //         console.log(decoded);
             setUser({ email: decoded.email, role: decoded.role, user: decoded.user });
         } else {
             console.error('Invalid token during login:', decoded);
