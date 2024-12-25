@@ -5,15 +5,12 @@ import { AuthContext } from '../Providers/AuthProviders';
 
 export default function Navbar() {
 
-  const { user, logout } = useContext(AuthContext) ;
-  console.log(user);
-
   const { user, logout } = useContext(AuthContext);
   //console.log(user);
 
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem('token') !== null;
-  const role = localStorage.getItem('role');
+ // const role = localStorage.getItem('role');
 
   const handleLogout = () => {
     logout();
