@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Product({ product }) {
   return (
+
     <Link to={`/product/${product._id}`} className="max-w-xs bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 hover:shadow-xl transition-transform duration-300 mx-auto">
       {/* Product Image */}
       <div className="relative h-64 overflow-hidden">
@@ -33,36 +34,38 @@ export default function Product({ product }) {
           <span className="font-semibold">Fabric:</span> {product?.fabric}
         </div>
 
-        {/* Sizes */}
-        <div className="mt-1 text-sm text-gray-500">
-          <span className="font-semibold">Size:</span> {product?.size.join(', ')}
-        </div>
+       {/* Sizes */}
+<div className="mt-1 text-sm text-gray-500">
+  <span className="font-semibold">Size:</span>{' '}
+  {(product?.size || []).join(', ') || 'N/A'}
+</div>
 
-        {/* Price and Rating */}
-        <div className="flex justify-between items-center mt-4">
-          <div className="text-xl font-bold text-blue-600">
-            ${product?.price.toFixed(2)}
-          </div>
-          <div className="flex items-center text-yellow500">
-            {Array.from({ length: 5 }, (_, i) => (
-              <svg
-                key={i}
-                xmlns="http://www.w3.org/2000/svg"
-                fill={i < product?.rating ? "currentColor" : "none"}
-                stroke="currentColor"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 17.27l6.18 3.73-1.64-7.19L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.57-1.64 7.19L12 17.27z"
-                />
-              </svg>
-            ))}
-          </div>
-        </div>
+{/* Price and Rating */}
+<div className="flex justify-between items-center mt-4">
+  <div className="text-xl font-bold text-blue-600">
+    ${product?.price?.toFixed(2) || '0.00'}
+  </div>
+  <div className="flex items-center text-yellow500">
+    {Array.from({ length: 5 }, (_, i) => (
+      <svg
+        key={i}
+        xmlns="http://www.w3.org/2000/svg"
+        fill={i < product?.rating ? "currentColor" : "none"}
+        stroke="currentColor"
+        className="w-5 h-5"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M12 17.27l6.18 3.73-1.64-7.19L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.57-1.64 7.19L12 17.27z"
+        />
+      </svg>
+    ))}
+  </div>
+</div>
+
 
         {/* Add to Cart and Details Button */}
         <div className="flex justify-between mt-6">
@@ -77,5 +80,9 @@ export default function Product({ product }) {
         </div>
       </div>
    </Link>
+
+  
+        
+
   );
 }

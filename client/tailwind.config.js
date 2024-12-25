@@ -18,6 +18,8 @@ export default {
       pink300: "#f9a8d4",
       pink700: "#be185d",
       yellow500: "#fde047",
+      gray100: "#94a3b8",
+      rose600 : '#e11d48'
     },
   },
   plugins: [require("daisyui")],

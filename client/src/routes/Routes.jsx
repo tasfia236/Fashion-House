@@ -7,7 +7,8 @@ import SignIn from "../Pages/Auth/SignIn";
 import UserDashboard from "../Pages/Dashboard/UserDashboard";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 import { SingleProductDetails } from "../Pages/SingleProductDetails/SingleProductDetails";
-import { AllProducts } from "../Components/AllProducts";
+
+import { AllProductsNewpage } from "../Components/AllProductsNewPage";
 
 
 
@@ -22,7 +23,7 @@ const routes = createBrowserRouter([
             },
             {
                 path : '/product',
-                element: <AllProducts></AllProducts>
+                element: <AllProductsNewpage/>
             },
             {
                 path : '/product/:id',
