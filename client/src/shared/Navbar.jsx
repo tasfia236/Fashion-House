@@ -2,6 +2,8 @@ import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo2.png';
 import { AuthContext } from '../Providers/AuthProviders';
+import { NavLink } from "react-router-dom";
+
 
 export default function Navbar() {
 
@@ -10,7 +12,7 @@ export default function Navbar() {
 
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem('token') !== null;
- // const role = localStorage.getItem('role');
+  // const role = localStorage.getItem('role');
 
   const handleLogout = () => {
     logout();
@@ -18,9 +20,36 @@ export default function Navbar() {
   };
 
   const NavList = <>
-    <li><Link to="/" className='font-bold text-base hover:bg-pink300'>Home</Link> </li>
-    <li> <Link to="/all-product" className='font-bold text-base hover:bg-pink300'>Product</Link> </li>
-    <li> <Link to="/contact Us" className='font-bold text-base hover:bg-pink300'>Contact Us</Link> </li>
+    <li>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? "text-pink700 font-bold" : ""
+        }
+      >
+        Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/product"
+        className={({ isActive }) =>
+          isActive ? "text-pink700 font-bold" : ""
+        }
+      >
+        Product
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/contact Us"
+        className={({ isActive }) =>
+          isActive ? "text-pink700 font-bold" : ""
+        }
+      >
+        Contact Us
+      </NavLink>
+    </li>
   </>
 
   const NavList2 = <>
@@ -33,7 +62,7 @@ export default function Navbar() {
   </>
 
   return (
-    <div className="navbar fixed z-10 bg-base-100 bg-opacity-15 text-black">
+    <div className="navbar   text-black shadow-lg ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -52,7 +81,7 @@ export default function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            className="menu menu-sm dropdown-content   z-[1] mt-3 w-52 p-2 ">
             {NavList}
           </ul>
         </div>
@@ -62,21 +91,27 @@ export default function Navbar() {
       </div>
 
       {/* Center: LOGO */}
-      <div className="navbar-center">
+      <div className="navbar-center ">
         <a href='/' className="btn btn-ghost text-xl">
           <img src={logo} className='h-[60px] lg:h-[70px]' />
-          <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-14 -mr-28">
-            <span className="text-pink700 absolute -ml-28">Fashion</span> House
-          </p>
+          <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-14 -mr-28"> </p>
+          <span className="text-pink700 absolute -ml-28">Fashion</span> House
+          {/* <div className=' flex'>
+            <img src={logo} className='h-[100px] lg:h-[45px]' />
+            <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-12 -ml-28">
+              <span className="text-pink700">Fashion</span> House
+
+            </p>
+          </div> */}
         </a>
       </div>
 
       {/* End: Search, Icon, Auth */}
       <div className="flex-none gap-2 navbar-end">
         <div className="navbar-center flex items-center">
-          <div className="form-control">
+          {/* <div className="form-control">
             <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
-          </div>
+          </div> */}
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar lg:hidden">
               <div
@@ -119,11 +154,13 @@ export default function Navbar() {
           </ul>
           {!user && <>
             <div className="gap-3 hidden lg:flex">
+
               <Link to='/signin'>
-                <button className="btn btn-sm bg-sky300">Sign In</button>
+                <button className="btn btn-sm bg-pink700 text-white ">Sign In</button>
               </Link>
               <Link to='/signup'>
-                <button className="btn btn-sm bg-pink300">Sign Up</button>
+                <button className="btn btn-sm bg-transparent text-black hover:bg-pink700 hover:text-white">Sign Up</button>
+
               </Link>
             </div>
           </>}

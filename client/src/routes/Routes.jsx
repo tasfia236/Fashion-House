@@ -1,14 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import { MainLayout } from "../Layouts/MainLayout";
 import Home from "../Pages/Home/Home";
-import Product from "../Pages/AllProducts/AllProduct";
-import SignUp from "../Pages/Auth/SignUp";
-import SignIn from "../Pages/Auth/SignIn";
-import UserDashboard from "../Pages/Dashboard/User/UserDashboard";
-import AdminDashboard from "../Pages/Dashboard/Admin/AdminDashboard";
+//import UserDashboard from "../Pages/Dashboard/User/UserDashboard";
+//import AdminDashboard from "../Pages/Dashboard/Admin/AdminDashboard";
 import Products from "../Pages/Home/Product/Products";
 import Profile from "../Pages/Dashboard/Profile/Profile";
 import Dashboard from "../Layouts/Dashboard";
+import SignUp from "../Pages/Auth/SignUp";
+import SignIn from "../Pages/Auth/SignIn";
+import { SingleProductDetails } from "../Pages/SingleProductDetails/SingleProductDetails";
+
+import { AllProductsNewpage } from "../Components/AllProductsNewPage";
+
 
 const routes = createBrowserRouter([
     {
@@ -24,6 +27,14 @@ const routes = createBrowserRouter([
                 element: <Products></Products>
             },
             {
+                path: '/product',
+                element: <AllProductsNewpage />
+            },
+            {
+                path: '/product/:id',
+                element: <SingleProductDetails />
+            },
+            {
                 path: '/signin',
                 element: <SignIn></SignIn>
             },
@@ -31,6 +42,7 @@ const routes = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             },
+
             //      {
             //     path: '/user-dashboard',
             //     element: <UserDashboard></UserDashboard>,
@@ -44,6 +56,7 @@ const routes = createBrowserRouter([
             //     element: <Profile></Profile>
             // }
 
+
         ]
     },
     {
@@ -54,10 +67,7 @@ const routes = createBrowserRouter([
                 path: 'profile',
                 element: <Profile></Profile>
             },
-            {
-                path: 'allproduct',
-                element: <Product></Product>
-            }
+           
         ]
     },
 ])

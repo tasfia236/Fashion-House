@@ -37,7 +37,7 @@ export const Carousel = () => {
         }}
       >
          
-        <div className="flex items-center justify-center w-full h-full bg-gray-900/40 ">
+        <div className="flex items-center justify-center w-full h-full bg-gray-900/40  ">
         
           <div className="text-center">
             <h1 className="text-3xl font-semibold text-white lg:text-4xl">

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import saree from '../assets/saree.jpg';
 import shalwar from '../assets/selwar-kamiz.jpg';
 import accessories from '../assets/Accessories.jpg';
 import twopiece from '../assets/twopiece.jpg';
 import useAxiosPublic from '../Hooks/useAxiosPublic';
 
-const Categories = () => {
+ const Categories = () => {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const axiosPublic = useAxiosPublic();
@@ -84,5 +84,4 @@ const Categories = () => {
     </div>
   );
 };
-
 export default Categories;
