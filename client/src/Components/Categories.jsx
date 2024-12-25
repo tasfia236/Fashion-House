@@ -17,20 +17,11 @@ const Categories = () => {
     { id: 4, name: 'Shalwar Kameez', image: shalwar },
   ];
 
-//   useEffect(() => {
-//     axiosPublic
-//       .get('/products/data') 
-//       .then((response) => {
-//         setProducts(response.data);
-//       })
-//       .catch((error) => {
-//         console.error('Error fetching products:', error);
-//       });
-//   }, []);
+
  useEffect(()=>{
     const getData = async () =>{
         const {data} =await axiosPublic.get('/products/data')  
-   //     console.log(data)
+  
         setProducts(data); 
        
     }
