@@ -3,6 +3,7 @@ import bcryptjs from "bcryptjs";
 import User from "../models/User.js";
 import { errorHandle } from "../utils/error.js";
 import jwt from "jsonwebtoken";
+import { ObjectId } from 'mongodb';
 
 const router = express.Router();
 
@@ -49,6 +50,15 @@ router.post('/signin', async (req, res, next) => {
 router.get('/user', async (req, res) => {
     const result = await User.find({})
     res.send(result)
+})
+
+
+//User Delete
+router.delete('/user/:id', async (req, res) => {
+    const id =  req.params.id;
+    const quary = { _id: new ObjectId(id)}
+    const result = await User.deleteOne(quary)
+    res.send(result);
 })
 
 export default router;

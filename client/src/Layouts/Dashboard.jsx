@@ -20,7 +20,7 @@ export default function Dashboard() {
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/dashboard/alluser">
+                <NavLink to="/dashboard/allusers">
                     <FaUserFriends></FaUserFriends>
                     All Users
                 </NavLink>
@@ -94,10 +94,10 @@ export default function Dashboard() {
     return (
         <div className=''>
             <Navbar></Navbar>
-            <div className='drawer lg:drawer-open pt-2'>
+            <div className='drawer lg:drawer-open'>
                 <input type="checkbox" id="my-drawer-2" className="drawer-toggle" />
                 <div className="drawer-content flex-none">
-                    <label htmlFor="my-drawer-2" className="btn btn-square btn-ghost lg:hidden mt-16">
+                    <label htmlFor="my-drawer-2" className="btn btn-square btn-ghost lg:hidden m-2 p-2">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -110,11 +110,11 @@ export default function Dashboard() {
                                 d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </label>
-                    <div>
+                    <div className='p-5'>
                         <Outlet></Outlet>
                     </div>
                 </div>
-                <div className="drawer-side pt-20">
+                <div className="drawer-side pt-16 lg:pt-0">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 min-h-full bg-base-200">
                         {links}

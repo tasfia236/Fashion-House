@@ -36,6 +36,7 @@ app.use((err, req, res, next) => {
 
 app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
+app.use('/manage', authRoutes);
 app.use('/products', productRoutes);
 app.use('/product', productRoutes);
 app.use('/total-Products', productRoutes);

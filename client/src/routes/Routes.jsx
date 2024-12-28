@@ -11,6 +11,7 @@ import SignIn from "../Pages/Auth/SignIn";
 import { SingleProductDetails } from "../Pages/SingleProductDetails/SingleProductDetails";
 
 import { AllProductsNewpage } from "../Components/AllProductsNewPage";
+import AllUser from "../Pages/Dashboard/Admin/ManageUser/AllUser";
 
 
 const routes = createBrowserRouter([
@@ -67,6 +68,11 @@ const routes = createBrowserRouter([
                 path: 'profile',
                 element: <Profile></Profile>
             },
+            //Admin Dashboard
+            {
+                path: 'allusers',
+                element: <AllUser></AllUser>
+            }
            
         ]
     },
