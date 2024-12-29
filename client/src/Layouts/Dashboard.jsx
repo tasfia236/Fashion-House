@@ -114,7 +114,7 @@ export default function Dashboard() {
                         <Outlet></Outlet>
                     </div>
                 </div>
-                <div className="drawer-side pt-20">
+                <div className="drawer-side pt-20 lg:pt-0">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 min-h-full bg-base-200">
                         {links}

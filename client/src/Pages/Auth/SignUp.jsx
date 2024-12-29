@@ -3,8 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import bgImg from "../../assets/pic1.jpg"
 import logo from '../../assets/logo.jpg';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { app } from '../../firebase/firebase';
+
 import Swal from 'sweetalert2';
 
 export default function SignUp() {

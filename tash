@@ -1,0 +1,174 @@
+[33mcommit 5e2178254070b3339a8dd69badc074d1db6966ac[m[33m ([m[1;36mHEAD -> [m[1;32mupdated[m[33m, [m[1;31morigin/updated[m[33m)[m
+Author: masum-abrar <masum.abrar02@gmail.com>
+Date:   Thu Dec 26 02:35:15 2024 +0600
+
+    sort filter search functionality added
+
+[33mcommit e5742da1f3ccdd261eb136eec8560228c5baa912[m
+Author: masum-abrar <masum.abrar02@gmail.com>
+Date:   Thu Dec 26 02:16:40 2024 +0600
+
+    sort filter search functionality added
+
+[33mcommit 5add9a0821be077584152a03144ccb2a4a7c0d8c[m[33m ([m[1;32mnew[m[33m)[m
+Author: masum-abrar <masum.abrar02@gmail.com>
+Date:   Thu Dec 26 01:14:19 2024 +0600
+
+    filter sort search functionality added
+
+[33mcommit e296d3a385f6cd63b94fd797cdc2aea35f9d2ef6[m[33m ([m[1;31morigin/primary[m[33m, [m[1;32mprimary[m[33m)[m
+Author: masum-abrar <masum.abrar02@gmail.com>
+Date:   Tue Dec 24 00:57:45 2024 +0600
+
+    all product section updated
+
+[33mcommit 4fc250eb9948de4ab7e34fcd9c1a9447cd306b34[m
+Author: masum-abrar <masum.abrar02@gmail.com>
+Date:   Mon Dec 23 23:55:29 2024 +0600
+
+    all product section updated
+
+[33mcommit 01925ae11fb232f88f09add53f7bdd686f47a79b[m
+Author: masum-abrar <masum.abrar02@gmail.com>
+Date:   Thu Dec 19 18:53:49 2024 +0600
+
+    Categories section complited
+
+[33mcommit aced53603cdc1a636a19d8995e3e34bb7c925ec0[m
+Merge: 7eda635 48c674c
+Author: masum-abrar <149561884+masum-abrar@users.noreply.github.com>
+Date:   Thu Dec 19 11:58:15 2024 +0600
+
+    Merge pull request #4 from tasfia236/main
+    
+             Create product model, product and category api
+
+[33mcommit 48c674ca4a3c684129829ca215f543f2d38415e9[m
+Merge: c11a1f1 d0f337f
+Author: tasfia236 <tasfiatabassum300@gmail.com>
+Date:   Thu Dec 19 04:39:37 2024 +0600
+
+    Added Hero section and modify navbar
+
+[33mcommit c11a1f1deb424fddd097f0ada81f4e4e089ccf00[m
+Author: tasfia236 <tasfiatabassum300@gmail.com>
+Date:   Thu Dec 19 04:37:00 2024 +0600
+
+    Create product model, product and category api
+
+[33mcommit d0f337f655361f8d738b5348e4177d93348503c3[m
+Merge: 8828134 c0e9bce
+Author: Tasfia Tabassum <107872891+tasfia236@users.noreply.github.com>
+Date:   Wed Dec 18 21:20:07 2024 +0000
+
+    Merge pull request #3 from masum-abrar/second
+    
+    Hero Section
+
+[33mcommit c0e9bce6a039769aae80aa405a2ea44f52b1d7be[m
+Author: masum-abrar <masum.abrar02@gmail.com>
+Date:   Thu Dec 19 03:17:48 2024 +0600
+
+    hero section
+
+[33mcommit 7eda635b834f56b719285d1ce94e3bc8bbf59b42[m
+Merge: 4eac8cd 8828134
+Author: masum-abrar <149561884+masum-abrar@users.noreply.github.com>
+Date:   Wed Dec 18 22:42:47 2024 +0600
+
+    Merge pull request #3 from tasfia236/main
+    
+    Complete Authentication
+
+[33mcommit 88281340a4e2b3616127342270d052a8a6b0526c[m
+Author: tasfia236 <tasfiatabassum300@gmail.com>
+Date:   Tue Dec 17 22:17:04 2024 +0600
+
+    GET all user
+
+[33mcommit bbfe26d613c3adfc6a0825b7bb38bc2f14fdc404[m
+Author: tasfia236 <tasfiatabassum300@gmail.com>
+Date:   Tue Dec 17 22:14:07 2024 +0600
+
+    Complete Authentication
+
+[33mcommit 6764ff3b2c14299aa2ccaae560b247a1c0c3d69f[m
+Author: tasfia236 <tasfiatabassum@gmail.com>
+Date:   Sun Dec 15 16:11:02 2024 +0000
+
+    add middleware and signup functionality
+
+[33mcommit fa6fab50aad8464bb939e21cd6ff70880ea8148f[m
+Author: tasfia236 <tasfiatabassum@gmail.com>
+Date:   Sat Dec 14 14:16:32 2024 +0000
+
+    convert hash password
+
+[33mcommit c0aa3444260fe6eafd5811e9301fed96f17559a5[m
+Author: tasfia236 <tasfiatabassum300@gmail.com>
+Date:   Fri Dec 13 15:22:30 2024 +0600
+
+    connect database, create user moder and signup api
+
+[33mcommit cba9fd19c9b67304a36f0ce1e884a0584b96dcf8[m
+Author: tasfia236 <tasfiatabassum300@gmail.com>
+Date:   Fri Dec 13 02:55:05 2024 +0600
+
+    create and run the server
+
+[33mcommit d182203a643aa8a5aa5df69c36b40849f63d2593[m
+Merge: eb20de0 280c9cb
+Author: masum-abrar <149561884+masum-abrar@users.noreply.github.com>
+Date:   Fri Dec 13 01:08:54 2024 +0600
+
+    Merge pull request #2 from masum-abrar/second
+    
+    login and registration page complited
+
+[33mcommit eb20de0769b01aee8ad120e59717f0fdb21a93f7[m
+Merge: 6d00a82 4eac8cd
+Author: Tasfia Tabassum <107872891+tasfia236@users.noreply.github.com>
+Date:   Fri Dec 13 01:05:36 2024 +0600
+
+    Merge pull request #1 from masum-abrar/main
+    
+    Merge pull request #1 from tasfia236/main
+
+[33mcommit 280c9cb441a01b5cfe39bf40c9b382a2442cf2d8[m
+Author: masum-abrar <masum.abrar02@gmail.com>
+Date:   Fri Dec 13 00:59:15 2024 +0600
+
+    login and registration page complited
+
+[33mcommit 4eac8cdce0465e507f9d4826dd808470f811b3af[m
+Merge: 11d459e 6d00a82
+Author: masum-abrar <149561884+masum-abrar@users.noreply.github.com>
+Date:   Thu Dec 12 19:59:34 2024 +0600
+
+    Merge pull request #1 from tasfia236/main
+    
+    selete theme
+
+[33mcommit 6d00a826076770c55b1f3fe50d35fa8c4b05b077[m
+Author: tasfia236 <tasfiatabassum300@gmail.com>
+Date:   Thu Dec 12 19:47:40 2024 +0600
+
+    selete theme
+
+[33mcommit 11d459e51f5b944220efb5642a1c8fff12a3d277[m
+Author: tasfia236 <tasfiatabassum300@gmail.com>
+Date:   Thu Dec 12 00:02:00 2024 +0600
+
+    create routes
+
+[33mcommit b83993f889ab1f29da4520d68e434cdee0b8b168[m
+Author: tasfia236 <tasfiatabassum300@gmail.com>
+Date:   Wed Dec 11 23:23:44 2024 +0600
+
+    install tailwindcss, reactjs and others
+
+[33mcommit 32a9592c01500203b8d0b0b9aa823c5d60398a52[m
+Author: tasfia236 <tasfiatabassum300@gmail.com>
+Date:   Wed Dec 11 01:35:08 2024 +0600
+
+    First commit

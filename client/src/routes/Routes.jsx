@@ -4,12 +4,12 @@ import Home from "../Pages/Home/Home";
 
 import SignUp from "../Pages/Auth/SignUp";
 import SignIn from "../Pages/Auth/SignIn";
-import { Dashboard } from "../Pages/Dashboard/Dashboard";
-import { Profile } from "../Pages/Dashboard/Profile";
-import { Product } from "../Pages/Dashboard/Product";
+
+
 import { SingleProductDetails } from "../Pages/SingleProductDetails/SingleProductDetails";
 
 import { AllProductsNewpage } from "../Components/AllProductsNewPage";
+import Dashboard from "../Layouts/Dashboard";
 
 
 
@@ -46,14 +46,7 @@ const routes = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard></Dashboard>,
         children: [
-            {
-                path: 'profile',
-                element: <Profile></Profile>
-            },
-            {
-                path: 'allproduct',
-                element: <Product></Product>
-            }
+          
         ]
     },
 ])

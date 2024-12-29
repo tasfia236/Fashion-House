@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo2.png';
 import { AuthContext } from '../Providers/AuthProviders';
 import { NavLink } from "react-router-dom";
+import { Button } from '@/Components/ui/button';
+import ShoppingCartComponent  from '@/Components/ShopingCart';
+
 
 
 export default function Navbar() {
@@ -24,7 +27,7 @@ export default function Navbar() {
     <NavLink 
       to="/" 
       className={({ isActive }) => 
-        isActive ? "text-pink700 font-bold" : ""
+        isActive ? "text-pink700 font-bold border-b-2 border-pink700" : ""
       }
     >
       Home
@@ -34,7 +37,7 @@ export default function Navbar() {
     <NavLink 
       to="/product" 
       className={({ isActive }) => 
-        isActive ? "text-pink700 font-bold" : ""
+        isActive ? "text-pink700 font-bold border-b-2 border-pink700" : ""
       }
     >
       Product
@@ -44,7 +47,7 @@ export default function Navbar() {
     <NavLink 
       to="/contact Us" 
       className={({ isActive }) => 
-        isActive ? "text-pink700 font-bold" : ""
+        isActive ? "text-pink700 font-bold border-b-2 border-pink700" : ""
       }
     >
       Contact Us
@@ -155,12 +158,18 @@ export default function Navbar() {
           </ul>
           {!user && <>
             <div className="gap-3 hidden lg:flex">
+
+
+            
               <Link to='/signin'>
                 <button className="btn btn-sm bg-pink700 text-white ">Sign In</button>
               </Link>
               <Link to='/signup'>
                 <button className="btn btn-sm bg-transparent text-black hover:bg-pink700 hover:text-white">Sign Up</button>
               </Link>
+              <div className="mr-3"> 
+            <ShoppingCartComponent></ShoppingCartComponent>
+             </div>
             </div>
           </>}
         </div>
