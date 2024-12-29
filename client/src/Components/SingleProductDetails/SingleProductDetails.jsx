@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import { useParams } from 'react-router-dom';
 
-export const SingleProductDetails = () => {
+const SingleProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const axiosPublic = useAxiosPublic();
@@ -116,3 +116,5 @@ export const SingleProductDetails = () => {
     </div>
   );
 };
+
+export default SingleProductDetails

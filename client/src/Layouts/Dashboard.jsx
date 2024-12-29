@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { AuthContext } from '../Providers/AuthProviders';
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaHome, FaProductHunt, FaUser, FaUserFriends } from 'react-icons/fa';
+import { FaHome, FaShoppingBag, FaStar, FaUser, FaUserFriends } from 'react-icons/fa';
 import Navbar from '../Shared/Navbar';
 
 export default function Dashboard() {
@@ -28,22 +28,17 @@ export default function Dashboard() {
             <li>
                 <NavLink to="/dashboard/mybooking">
 
-                    Cash-Out</NavLink>
+                    Add Product</NavLink>
             </li>
             <li>
                 <NavLink to="/dashboard/mywishlist">
 
-                    Cash-In</NavLink>
+                    Manage Product</NavLink>
             </li>
             <li>
                 <NavLink to="/dashboard/requestAdmin">
-
-                    Balance Inquiry</NavLink>
-            </li>
-            <li>
-                <NavLink to="/dashboard/transactions">
-
-                    Transactions History</NavLink>
+                    <FaShoppingBag></FaShoppingBag>
+                    All Order</NavLink>
             </li>
         </>
     );
@@ -56,29 +51,19 @@ export default function Dashboard() {
             </li>
             <li>
                 <NavLink to="/dashboard/profile">
-                    <FaProductHunt></FaProductHunt>
+                    <FaUser></FaUser>
                     Profile
                 </NavLink>
             </li>
             <li>
                 <NavLink to="/dashboard/mybooking">
-
-                    Cash-Out</NavLink>
+                    <FaStar></FaStar>
+                    My WishList</NavLink>
             </li>
             <li>
                 <NavLink to="/dashboard/mywishlist">
-
-                    Cash-In</NavLink>
-            </li>
-            <li>
-                <NavLink to="/dashboard/requestAdmin">
-
-                    Balance Inquiry</NavLink>
-            </li>
-            <li>
-                <NavLink to="/dashboard/transactions">
-
-                    Transactions History</NavLink>
+                    <FaShoppingBag></FaShoppingBag>
+                    My OrderList</NavLink>
             </li>
         </>
 

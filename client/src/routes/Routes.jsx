@@ -1,18 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import { MainLayout } from "../Layouts/MainLayout";
-import Home from "../Pages/Home/Home";
+import Home from "../Components/Home/Home";
 //import UserDashboard from "../Pages/Dashboard/User/UserDashboard";
 //import AdminDashboard from "../Pages/Dashboard/Admin/AdminDashboard";
-import Products from "../Pages/Home/Product/Products";
-import Profile from "../Pages/Dashboard/Profile/Profile";
+import SignIn from "../Components/Auth/SignIn";
+import SignUp from "../Components/Auth/SignUp";
+import AllProductsNewpage from "../Components/AllProducts/AllProductsNewPage"; 
+import SingleProductDetails from "../Components/SingleProductDetails/SingleProductDetails";
+
+
 import Dashboard from "../Layouts/Dashboard";
-import SignUp from "../Pages/Auth/SignUp";
-import SignIn from "../Pages/Auth/SignIn";
-import { SingleProductDetails } from "../Pages/SingleProductDetails/SingleProductDetails";
-
-import { AllProductsNewpage } from "../Components/AllProductsNewPage";
-import AllUser from "../Pages/Dashboard/Admin/ManageUser/AllUser";
-
+import Profile from "../Components/Dashboard/Profile/Profile";
+import AllUser from "../Components/Dashboard/Admin/ManageUser/AllUser";
 
 const routes = createBrowserRouter([
     {
@@ -23,10 +22,10 @@ const routes = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
             },
-            {
-                path: '/all-product',
-                element: <Products></Products>
-            },
+            // {
+            //     path: '/all-product',
+            //     element: <Products></Products>
+            // },
             {
                 path: '/product',
                 element: <AllProductsNewpage />

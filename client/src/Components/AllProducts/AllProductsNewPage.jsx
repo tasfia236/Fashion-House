@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
-import Product from "../Pages/AllProducts/Product";
+import { useEffect, useState } from "react";
+import Product from "../AllProducts/Product.jsx";
+import useAxiosPublic from "../../Hooks/useAxiosPublic.jsx";
 
-export const AllProductsNewpage = () => {
+const AllProductsNewpage = () => {
   const [itemPerPage, setItemPerPage] = useState(3);
   const [currentpage, setCurrentPage] = useState(1);
   const [count, setCount] = useState(0);
   const [filter , setfilter] = useState('');
   const [sort , setSort] = useState('');
   const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("");
- 
+  const [search, setSearch] = useState(""); 
   const axiosPublic = useAxiosPublic();
 
   useEffect(() => {
@@ -181,3 +180,5 @@ export const AllProductsNewpage = () => {
     </div>
   );
 };
+
+export default AllProductsNewpage;

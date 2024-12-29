@@ -1,6 +1,6 @@
 // Import Swiper styles
-import pic3 from '../assets/pic3.jpg'
-import pic2 from '../assets/pic2.jpg'
+import pic3 from '../../assets/pic3.jpg'
+import pic2 from '../../assets/pic2.jpg'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-export const Carousel = () => {
+const Carousel = () => {
   return (
     <>
   
@@ -78,3 +78,4 @@ export const Carousel = () => {
   </>
   )
 }
+export default Carousel;

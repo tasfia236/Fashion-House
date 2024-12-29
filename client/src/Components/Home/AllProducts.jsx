@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
-import Product from "../Pages/AllProducts/Product.jsx";
+import useAxiosPublic from "../../Hooks/useAxiosPublic.jsx";
+import Product from "../../Components/AllProducts/Product.jsx";
 
 export const AllProducts = () => {
   const [itemPerPage, setItemPerPage] = useState(3);

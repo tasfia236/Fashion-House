@@ -38,7 +38,7 @@ export default function SignUp() {
           setMessage(data.message || 'An error occurred. Please try again.');
           return; // Stop further execution on failure
         }
-
+        navigate('/signin');
       })
       .catch(error => {
         setLoading(false)
