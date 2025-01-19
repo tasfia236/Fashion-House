@@ -1,10 +1,11 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function Product({ product }) {
     return (
 
-        <Link to={`/product/${product._id}`} className="max-w-xs bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 hover:shadow-xl transition-transform duration-300 mx-auto">
+        <Link to={`/product/${product._id}`} className="bg-white shadow-lg hover:shadow-xl mx-auto rounded-lg max-w-xs transition-transform duration-300 overflow-hidden hover:scale-105">
             {/* Product Image */}
             <div className="relative h-64 overflow-hidden">
                 <img
@@ -12,7 +13,7 @@ export default function Product({ product }) {
                     alt={product?.productName}
                     className="w-full h-full object-cover"
                 />
-                <div className="absolute top-2 right-2 bg-yellow-400 text-white  text-xs font-bold bg-pink700 p-2 px-4 rounded-full">
+                <div className="top-2 right-2 absolute bg-pink700 bg-yellow-400 px-4 p-2 rounded-full font-bold text-white text-xs">
                     {product?.categoryName}
                 </div>
             </div>
@@ -20,29 +21,29 @@ export default function Product({ product }) {
             {/* Product Details */}
             <div className="p-5">
                 {/* Product Name */}
-                <h2 className="text-lg font-bold text-gray-800 truncate">
+                <h2 className="font-bold text-gray-800 text-lg truncate">
                     {product?.productName}
                 </h2>
 
                 {/* Product Description */}
-                <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+                <p className="mt-2 line-clamp-3 text-gray-600 text-sm">
                     {product?.description}
                 </p>
 
                 {/* Fabric */}
-                <div className="mt-3 text-sm text-gray-500">
+                <div className="mt-3 text-gray-500 text-sm">
                     <span className="font-semibold">Fabric:</span> {product?.fabric}
                 </div>
 
                 {/* Sizes */}
-                <div className="mt-1 text-sm text-gray-500">
+                <div className="mt-1 text-gray-500 text-sm">
                     <span className="font-semibold">Size:</span>{' '}
                     {(product?.size || []).join(', ') || 'N/A'}
                 </div>
 
                 {/* Price and Rating */}
                 <div className="flex justify-between items-center mt-4">
-                    <div className="text-xl font-bold text-blue-600">
+                    <div className="font-bold text-blue-600 text-xl">
                         ${product?.price?.toFixed(2) || '0.00'}
                     </div>
                     <div className="flex items-center text-yellow500">
@@ -70,11 +71,11 @@ export default function Product({ product }) {
                 {/* Add to Cart and Details Button */}
                 <div className="flex justify-between mt-6">
 
-                    <button className="bg-transparent text-pink700 shadow-lg border-pink700 border-2 px-4 py-2 rounded-md text-sm font-semibold hover:bg-pink700 hover:text-white transition duration-200">
+                    <button className="border-2 border-pink700 bg-transparent hover:bg-pink700 shadow-lg px-4 py-2 rounded-md font-semibold text-pink700 text-sm hover:text-white transition duration-200">
 
                         Add to Cart
                     </button>
-                    <button className="bg-pink700 outline-none text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-blue-700 transition duration-200">
+                    <button className="bg-pink700 hover:bg-blue-700 px-4 py-2 rounded-md font-semibold text-sm text-white transition duration-200 outline-none">
                         View Details
                     </button>
                 </div>
@@ -83,3 +84,8 @@ export default function Product({ product }) {
 
     );
 }
+
+
+Product.propTypes = {
+    product: PropTypes.object
+  };

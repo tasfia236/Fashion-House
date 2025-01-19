@@ -25,7 +25,7 @@ router.post('/signup', async (req, res, next) => {
     });
     try {
         await newUser.save();
-        res.json('SignUp Seccessfully.')
+        res.json('SignUp Successfully.')
     } catch (err) {
         next(err.message); // middleware error handle
     }

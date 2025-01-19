@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx,html}"],
   theme: {
     extend: {},
     colors: {
@@ -10,8 +10,15 @@ export default {
       // 'sky300': '#bde0fe',
       // 'sky500': '#a2d2ff',
       // 'sky700': '#90c9ff',
-      // 'purple300': '#dee3ff',
-      // 'purple700': '#9c89b8',
+      black: '#000000',
+      purple50: '#ead7fd',
+      purple100: '#d8c3ec',
+      purple200: '#d9bdf5',
+      purple400: '#c899f5',
+      purple300: '#b593d4',
+      purple500: '#8c5abb',
+      purple700: '#912af2',
+      purple800: '#401468',
       white: "#ffffff",
       sky300: "#7dd3fc",
       pink100: "#ffeaf6",
@@ -19,7 +26,11 @@ export default {
       pink700: "#be185d",
       yellow500: "#fde047",
       gray100: "#94a3b8",
-      rose600 : '#e11d48'
+      rose600: '#e11d48',
+      blue50: '#ebf8ff',
+      blue200: '#90cdf4',
+      blue600: '#2171e2',
+      
     },
   },
   plugins: [require("daisyui")],

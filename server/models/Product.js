@@ -23,7 +23,15 @@ const productSchema = new mongoose.Schema({
     },
     rating: {
         type: 'number',
-        value: 4.00,
+        default: 4.0,
+        min: 0.0,
+        max: 5.0,
+        validate: {
+            validator: function (value) {
+                return value >= 0.0 && value <= 5.0;
+            },
+            message: 'Rating must be between 0.0 and 5.0',
+        },
     },
     size: {
         type: 'array',

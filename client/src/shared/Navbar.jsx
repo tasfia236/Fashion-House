@@ -62,13 +62,13 @@ export default function Navbar() {
   </>
 
   return (
-    <div className="navbar   text-black shadow-lg ">
+    <div className="shadow-lg text-black navbar">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="lg:hidden btn btn-ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor">
@@ -81,24 +81,24 @@ export default function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content z-[1] mt-3 w-52 p-2 ">
+            className="z-[1] mt-3 p-2 w-52 dropdown-content menu menu-sm">
             {NavList}
           </ul>
         </div>
-        <ul className="menu menu-horizontal px-1 hidden lg:flex">
+        <ul className="lg:flex hidden px-1 menu menu-horizontal">
           {NavList}
         </ul>
       </div>
 
       {/* Center: LOGO */}
-      <div className="navbar-center ">
-        <a href='/' className="btn btn-ghost text-xl">
+      <div className="navbar-center">
+        <a href='/' className="text-xl btn btn-ghost">
           <img src={logo} className='h-[60px] lg:h-[70px]' />
-          <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-14 -mr-28"> </p>
-          <span className="text-pink700 absolute -ml-28">Fashion</span> House
-          {/* <div className=' flex'>
+          <p className="absolute -mr-28 -mb-14 font-bold text-gray-800 text-lg dark:text-white"> </p>
+          {/* <span className="absolute -ml-28 text-pink700">Fashion</span> House */}
+          {/* <div className='flex'>
             <img src={logo} className='h-[100px] lg:h-[45px]' />
-            <p className="text-lg font-bold text-gray-800 dark:text-white absolute -mb-12 -ml-28">
+            <p className="absolute -mb-12 -ml-28 font-bold text-gray-800 text-lg dark:text-white">
               <span className="text-pink700">Fashion</span> House
 
             </p>
@@ -108,14 +108,14 @@ export default function Navbar() {
 
       {/* End: Search, Icon, Auth */}
       <div className="flex-none gap-2 navbar-end">
-        <div className="navbar-center flex items-center">
+        <div className="flex items-center navbar-center">
           {/* <div className="form-control">
-            <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+            <input type="text" placeholder="Search" className="input-bordered w-24 md:w-auto input" />
           </div> */}
           <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar lg:hidden">
+            <div tabIndex={0} role="button" className="lg:hidden avatar btn btn-circle btn-ghost">
               <div
-                className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 overflow-hidden cursor-pointer"
+                className="bg-gray-300 dark:bg-gray-600 rounded-full w-10 h-10 cursor-pointer overflow-hidden"
                 title="User Profile"
               >
                 <img
@@ -127,25 +127,25 @@ export default function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              className="z-[1] bg-base-100 shadow mt-3 p-2 rounded-box w-52 dropdown-content menu menu-sm">
               {isLoggedIn && (
                 <>
                   {NavList2}
                 </>
               )}
               {!user && <>
-                <div className="gap-2 flex justify-around">
+                <div className="flex justify-around gap-2">
                   <Link to='/signin'>
-                    <button className="btn btn-sm bg-sky300">Sign In</button>
+                    <button className="bg-sky300 btn btn-sm">Sign In</button>
                   </Link>
                   <Link to='/signup'>
-                    <button className="btn btn-sm bg-pink300">Sign Up</button>
+                    <button className="bg-pink300 btn btn-sm">Sign Up</button>
                   </Link>
                 </div>
               </>}
             </ul>
           </div>
-          <ul className="menu menu-horizontal px-1 hidden lg:flex">
+          <ul className="lg:flex hidden px-1 menu menu-horizontal">
             {isLoggedIn && (
               <>
                 {NavList2}
@@ -153,13 +153,13 @@ export default function Navbar() {
             )}
           </ul>
           {!user && <>
-            <div className="gap-3 hidden lg:flex">
+            <div className="lg:flex gap-3 hidden">
 
               <Link to='/signin'>
-                <button className="btn btn-sm bg-pink700 text-white ">Sign In</button>
+                <button className="bg-pink700 text-white btn btn-sm">Sign In</button>
               </Link>
               <Link to='/signup'>
-                <button className="btn btn-sm bg-transparent text-black hover:bg-pink700 hover:text-white">Sign Up</button>
+                <button className="bg-transparent hover:bg-pink700 text-black hover:text-white btn btn-sm">Sign Up</button>
 
               </Link>
             </div>
