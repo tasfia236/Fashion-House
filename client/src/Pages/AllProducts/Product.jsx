@@ -1,4 +1,4 @@
-import { addToCart } from '@/redux/CartSlice';
+// import { addToCart } from '@/redux/CartSlice';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 export default function Product({ product }) {
 
 
-  const dispatch = useDispatch();
+//   const dispatch = useDispatch();
   
- const addCarthandler =(product )=>{
-  dispatch(addToCart(product))
-   toast.success('Product added to cart')
- }
+//  const addCarthandler =(product )=>{
+//   dispatch(addToCart(product))
+//    toast.success('Product added to cart')
+//  }
 
   
   return (
